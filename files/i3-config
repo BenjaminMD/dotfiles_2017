@@ -265,13 +265,14 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 
 bindsym $mod+Shift+x exec i3lock 
-exec --no-startup-id compton --config ~/dotfiles/files/compton.conf
+
+
 
 
 exec --no-startup-id xrandr --output LVDS-1 --mode 1366x768 --pos 1920x376 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off
 
 #wallpaper 
-exec --no-startup-id feh --randomize --bg-fill ~/Pictures 
+exec --no-startup-id feh --randomize --bg-scale ~/Pictures 
 
 
 #Programms at startup
