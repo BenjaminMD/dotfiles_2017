@@ -1,0 +1,18 @@
+#define FONT_MAIN roboto
+#define FONT_MONO robotomono
+
+rofi.color-enabled: true
+
+
+
+
+
+!urxvt
+URxvt.scrollBar: false
+URxvt.font: xft:Roboto mono:size=12
+URxvt.depth: 32
+URxvt.perl-ext-common: default,clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
