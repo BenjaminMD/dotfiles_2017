@@ -14,6 +14,9 @@ TEXT="$FOLDER/text.png"
 PARAMS=""
 OUTPUT_IMAGE="/tmp/i3lock.png"
 
+#Stop spotify 
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+ 
 #Take screenshot:
 scrot -z $OUTPUT_IMAGE
 
@@ -51,6 +54,7 @@ done <<<"`xrandr`"
 #Execute ImageMagick:
 PARAMS="'$OUTPUT_IMAGE' '-level' '0%,100%,0.6' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE'"
 eval convert $PARAMS
+
 
 #Lock the screen:
 i3lock -i $OUTPUT_IMAGE -t
