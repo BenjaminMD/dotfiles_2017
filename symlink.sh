@@ -1,6 +1,6 @@
 #!/bin/bash
 # Symlinking dotfiles to specific locations
-# WORK IN PROGRESS
+
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 ln $DIR/files/Xresources ~/.Xresources
