@@ -45,7 +45,8 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec rofi -show run -lines 5 -eh 3 -width 100 -padding 350 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec rofi -show run -lines 5 -eh 3 -width 100 -padding 350 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 # There also is the (new) i3-dmenu-desktop which only displays applicrofi -show run -lines 5 -eh 3 -width 100 -padding 300ations
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -112,6 +113,27 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+set_from_resource $bg-color 		background	#00ff00
+set_from_resource $inactive-bg-color 	color8 		#00ff00
+set_from_resource $text-color 		color15 	#00ff00
+set_from_resource $inactive-text-color 	color7 		#00ff00
+set_from_resource $border-color 	color0          #00ff00
+
+
+#color var
+#set	$bg-color 		#2f343f
+#set 	$inactive-bg-color 	#2f343f
+#set	$text-color 		#f3f4f5
+#set 	$inactive-text-color 	#676E7D
+set 	$urgent-bg-color 	#E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #000000
+client.unfocused        $border-color $inactive-bg-color $inactive-text-color #000000
+client.focused_inactive $border-color $inactive-bg-color $inactive-text-color #000000
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #000000
 
 set $workspace1 	"1 Chrome "
 set $workspace2 	"2 Test"
@@ -192,6 +214,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#i3lock
+bindsym $mod+p exec ~/dotfiles/i3lockfancy/lock
+
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -219,18 +245,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
 
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+
 
 hide_edge_borders both
 
@@ -266,19 +283,21 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 
 
-bindsym $mod+Shift+x exec i3lock 
 
 
 
+
+bindsym $mod+ü exec imgur-screenshot
 
 exec --no-startup-id xrandr --output LVDS-1 --mode 1366x768 --pos 1920x376 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off
 
 #wallpaper 
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures 
+exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpaper 
 
 
 #Programms at startup
 exec --no-startup-id telegram-desktop
+exec --no-startup-id dunst -config ~/dotfiles/files/dunst 
 
 
 
@@ -287,5 +306,4 @@ exec --no-startup-id telegram-desktop
 
 
 
-
-bindsym $mod+p exec ~/dotfiles/i3lockfancy/lock 
+ 

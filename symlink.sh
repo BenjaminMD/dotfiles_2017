@@ -8,3 +8,5 @@ ln $DIR/files/vimrc ~/.vimrc
 ln $DIR/files/zshrc ~/.zshrc
 ln $DIR/files/bashrc ~/.bashrc
 ln $DIR/files/i3-config ~/.config/i3/config
+ln $DIR/files/dunst ~/.config/dunst
+
